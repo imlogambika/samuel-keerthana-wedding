@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { background: #060B18; color: #FDFBF7; overflow-x: hidden; font-family: 'Plus Jakarta Sans', sans-serif; }
+  h1,h2,h3,h4 { font-family: 'Cormorant Garamond','Playfair Display',Georgia,serif; }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #060B18; }
+::-webkit-scrollbar-thumb { background: #38BDF8; border-radius: 3px; }
+
+.text-gold-gradient {
+  background: linear-gradient(135deg,#FFF1C5 0%,#D4AF37 40%,#F4E5A4 70%,#B8902A 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.text-sky-gradient {
+  background: linear-gradient(135deg,#BAE6FD 0%,#38BDF8 50%,#0EA5E9 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+@keyframes shimmer-move {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg,#D4AF37 0%,#F4E5A4 30%,#38BDF8 55%,#D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: shimmer-move 3s linear infinite;
+}
+
+.glass-card {
+  background: linear-gradient(180deg,rgba(14,30,60,0.55) 0%,rgba(6,11,24,0.88) 100%);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56,189,248,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.glass-panel {
+  background: rgba(6,11,24,0.72); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56,189,248,0.25);
+}
+.bg-sky-glow {
+  background: radial-gradient(ellipse at 50% 20%,rgba(56,189,248,0.18) 0%,transparent 65%);
+}
+.bg-gold-glow {
+  background: radial-gradient(ellipse at 50% 80%,rgba(212,175,55,0.12) 0%,transparent 65%);
+}
+.ghibli-bg {
+  background: linear-gradient(180deg,#060B18 0%,#0C1B35 40%,#0E2040 55%,#0C1B35 75%,#060B18 100%);
+}
+
+@keyframes heartbeat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.22)} }
+.animate-heartbeat { animation: heartbeat 1.4s ease-in-out infinite; }
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+.animate-float { animation: float 5s ease-in-out infinite; }
