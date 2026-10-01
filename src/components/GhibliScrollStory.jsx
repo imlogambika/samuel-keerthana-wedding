@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, ChevronRight, ChevronLeft, Play, Pause } from 'lucide-react';
 
@@ -58,7 +58,6 @@ export const GhibliScrollStory = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef(null);
 
-  // Auto-play timer
   useEffect(() => {
     if (!isPlaying) return;
     const interval = setInterval(() => {
@@ -76,17 +75,14 @@ export const GhibliScrollStory = () => {
       id="ghibli-story"
       className="relative bg-gradient-to-b from-[#060B18] via-[#091833] to-[#060B18] pt-28 pb-24 px-4 overflow-hidden border-t border-[#38BDF8]/20"
     >
-      {/* Ambient background glow */}
       <div className="absolute inset-0 bg-sky-glow opacity-30 pointer-events-none" />
       <div className="absolute inset-0 bg-gold-glow opacity-20 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto flex flex-col items-center justify-center relative z-10">
-
-        {/* Section Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#38BDF8]/40 bg-[#38BDF8]/10 text-xs uppercase font-bold tracking-[0.25em] text-[#7DD3FC] shadow-[0_0_20px_rgba(56,189,248,0.2)]">
             <Sparkles size={13} className="text-[#38BDF8]" />
-            A 10-Year Journey • 2016 to 2026
+            A 10-Year Journey · 2016 to 2026
             <Sparkles size={13} className="text-[#D4AF37]" />
           </div>
 
@@ -98,7 +94,6 @@ export const GhibliScrollStory = () => {
           </p>
         </div>
 
-        {/* Interactive Year Selector Bar */}
         <div className="w-full max-w-2xl flex items-center justify-between gap-1.5 sm:gap-3 p-2 rounded-2xl glass-card border border-[#38BDF8]/30 mb-8 shadow-[0_0_30px_rgba(56,189,248,0.15)]">
           {STORY_YEARS.map((item, idx) => (
             <button
@@ -120,7 +115,6 @@ export const GhibliScrollStory = () => {
             </button>
           ))}
 
-          {/* Autoplay toggle */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
             title={isPlaying ? 'Pause Story' : 'Auto Play Story'}
@@ -130,12 +124,9 @@ export const GhibliScrollStory = () => {
           </button>
         </div>
 
-        {/* Main Animation Area */}
         <div className="w-full max-w-4xl relative min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
-
           <AnimatePresence mode="wait">
             {!isFinalYear ? (
-              /* Phase 1: Two separate portraits sliding closer together */
               <motion.div
                 key={`sep-${activeIdx}`}
                 initial={{ opacity: 0 }}
@@ -144,7 +135,6 @@ export const GhibliScrollStory = () => {
                 transition={{ duration: 0.35 }}
                 className="w-full flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 relative"
               >
-                {/* Samuel Portrait & Card */}
                 <motion.div
                   animate={{ x: `${-current.distance}%` }}
                   transition={{ type: 'spring', stiffness: 90, damping: 20 }}
@@ -165,7 +155,6 @@ export const GhibliScrollStory = () => {
                   </p>
                 </motion.div>
 
-                {/* Central Golden Infinity Emblem (NO tacky hearts) */}
                 <div className="flex flex-col items-center justify-center shrink-0 my-2 md:my-0 z-20">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#D4AF37]/80 bg-[#0C1B35]/95 backdrop-blur-md flex flex-col items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]">
                     <span className="text-2xl sm:text-3xl text-gold-gradient font-serif leading-none">
@@ -180,7 +169,6 @@ export const GhibliScrollStory = () => {
                   </span>
                 </div>
 
-                {/* Keerthana Portrait & Card */}
                 <motion.div
                   animate={{ x: `${current.distance}%` }}
                   transition={{ type: 'spring', stiffness: 90, damping: 20 }}
@@ -202,7 +190,6 @@ export const GhibliScrollStory = () => {
                 </motion.div>
               </motion.div>
             ) : (
-              /* Phase 2: Grand Joined Climax (2026) */
               <motion.div
                 key="joined"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -211,7 +198,6 @@ export const GhibliScrollStory = () => {
                 transition={{ duration: 0.7, ease: 'easeOut' }}
                 className="w-full flex flex-col items-center text-center"
               >
-                {/* Unified Masterpiece Artwork */}
                 <div className="relative rounded-3xl overflow-hidden p-2 border-[3px] border-[#38BDF8] bg-[#0C1B35] shadow-[0_0_60px_rgba(56,189,248,0.5)] max-w-xl w-full">
                   <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden">
                     <img
@@ -221,9 +207,8 @@ export const GhibliScrollStory = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent opacity-75" />
                     
-                    {/* Badge */}
                     <div className="absolute top-4 right-4 bg-[#060B18]/85 backdrop-blur-md border border-[#D4AF37] px-4 py-1.5 rounded-full text-xs font-bold text-[#D4AF37] uppercase tracking-widest shadow-xl flex items-center gap-1.5">
-                      <Sparkles size={13} /> 2026 • United Forever
+                      <Sparkles size={13} /> 2026 · United Forever
                     </div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-center">
@@ -234,7 +219,6 @@ export const GhibliScrollStory = () => {
                   </div>
                 </div>
 
-                {/* The Requested Iconic Tamil Lyric Reveal */}
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -244,12 +228,11 @@ export const GhibliScrollStory = () => {
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <Sparkles size={15} className="text-[#38BDF8]" />
                     <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-[#7DD3FC]">
-                      Their Eternal Song • Oru Paadhi Kadhavu
+                      Their Eternal Song · Oru Paadhi Kadhavu
                     </span>
                     <Sparkles size={15} className="text-[#D4AF37]" />
                   </div>
 
-                  {/* Exact Tamil Line */}
                   <h3 className="text-3xl sm:text-5xl font-serif font-bold text-gold-gradient leading-tight my-2">
                     "நீ என்பதோ நான் தானடி..."
                   </h3>
@@ -261,17 +244,15 @@ export const GhibliScrollStory = () => {
                   <p className="text-xs sm:text-sm text-[#FDFBF7]/80 mt-3 font-light max-w-lg mx-auto leading-relaxed">
                     "ஒரு பாதி கதவு நீயடி... ஒரு பாதி கதவு நானடி..."<br />
                     <span className="text-[#D4AF37] font-medium">
-                      10 Years of Love (2016 – 2026) • Now Married in Love & Grace
+                      10 Years of Love (2016 – 2026) · Now Married in Love &amp; Grace
                     </span>
                   </p>
                 </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
-
         </div>
 
-        {/* Step Navigation Controls */}
         <div className="flex items-center gap-4 mt-8">
           <button
             onClick={() => {
@@ -301,7 +282,6 @@ export const GhibliScrollStory = () => {
             <ChevronRight size={18} />
           </button>
         </div>
-
       </div>
     </section>
   );

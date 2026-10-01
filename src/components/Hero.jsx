@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Sparkles } from 'lucide-react';
 
@@ -12,7 +12,7 @@ export const Hero = () => {
           animate={{ scale: 1.02 }}
           transition={{ duration: 16, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
           src="/assets/tree_couple.jpg"
-          alt="Samuel & Keerthana"
+          alt="Samuel and Keerthana"
           className="w-full h-full object-cover object-center"
           style={{ filter: 'brightness(0.35) contrast(1.15)' }}
         />
@@ -41,7 +41,7 @@ export const Hero = () => {
           className="mb-4 inline-flex items-center gap-2.5 px-6 py-2 rounded-full border border-[#38BDF8]/40 bg-[#38BDF8]/10 text-xs uppercase font-bold tracking-[0.3em] text-[#7DD3FC] shadow-[0_0_20px_rgba(56,189,248,0.2)]"
         >
           <Sparkles size={13} className="text-[#38BDF8]" />
-          10 Years of Love • 2016 – 2026
+          10 Years of Love · 2016 – 2026
           <Sparkles size={13} className="text-[#D4AF37]" />
         </motion.div>
 
