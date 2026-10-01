@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
@@ -37,7 +37,7 @@ export const Footer = () => {
 
         {/* 10 Years Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#38BDF8]/40 bg-[#38BDF8]/10 text-xs text-[#7DD3FC] uppercase tracking-widest font-bold mb-4">
-          10 Years of Love • 2016 – 2026
+          10 Years of Love â€¢ 2016 â€“ 2026
         </div>
 
         {/* Couple Names & Hashtag */}
@@ -50,11 +50,11 @@ export const Footer = () => {
         </p>
 
         <p className="text-base font-serif italic text-[#FDFBF7]/90 my-3">
-          "நீ என்பதோ நான் தானடி... ஒரு பாதி கதவு நீயடி, ஒரு பாதி கதவு நானடி..."
+          "à®¨à¯€ à®Žà®©à¯à®ªà®¤à¯‹ à®¨à®¾à®©à¯ à®¤à®¾à®©à®Ÿà®¿... à®’à®°à¯ à®ªà®¾à®¤à®¿ à®•à®¤à®µà¯ à®¨à¯€à®¯à®Ÿà®¿, à®’à®°à¯ à®ªà®¾à®¤à®¿ à®•à®¤à®µà¯ à®¨à®¾à®©à®Ÿà®¿..."
         </p>
 
         <p className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold">
-          Wednesday, October 28, 2026 • 11:00 AM • AM Mahal, Erode
+          Wednesday, October 28, 2026 â€¢ 11:00 AM â€¢ AM Mahal, Erode
         </p>
 
         {/* Back to Top */}
