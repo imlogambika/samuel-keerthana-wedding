@@ -68,7 +68,7 @@ export const Footer = () => {
           </button>
 
           <p className="text-xs text-[#7DD3FC]/75 tracking-wider font-light">
-            made with love {'\u{1F90D}'}.
+            {"made with love \u{1F90D}."}
           </p>
         </div>
 
