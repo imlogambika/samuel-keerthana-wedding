@@ -138,51 +138,56 @@ export const AudioPlayer = ({ autoPlayTriggered, onAudioStart }) => {
         onError={() => setUsingAudioFile(false)}
       />
 
-      <div
-        onClick={togglePlay}
-        className="glass-panel group flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full border border-gold-500/40 shadow-xl cursor-pointer hover:border-gold-400 hover:shadow-gold-500/20 transition-all duration-300"
-      >
-        {/* Animated Equalizer Waveform */}
-        <div className="flex items-end gap-0.5 h-3 w-4 sm:h-4 sm:w-5">
-          {[0.6, 1, 0.4, 0.8].map((h, i) => (
-            <span
-              key={i}
-              className={`w-0.9 bg-gradient-to-t from-gold-600 to-gold-300 rounded-full transition-all duration-300 ${
-                isPlaying && !isMuted ? 'animate-pulse' : 'h-1.5'
-              }`}
-              style={{
-                height: isPlaying && !isMuted ? `${h * 100}%` : '20%',
-                animationDelay: `${i * 150}ms`,
-                animationDuration: '600ms'
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="hidden sm:flex flex-col">
-          <span className="text-[10px] tracking-[0.2em] uppercase text-gold-400 font-semibold leading-tight">
-            Music
-          </span>
-          <span className="text-[11px] text-ivory-200 font-medium truncate max-w-[120px]">
-            Oru Paadhi Kadhavu
-          </span>
-        </div>
-
-        <button
+      <div className="glass-panel group rounded-full border border-gold-500/40 shadow-xl transition-all duration-300 flex items-center gap-2">
+        {/* Equalizer - clickable for play/pause */}
+        <div 
           onClick={togglePlay}
-          className="w-8 h-8 sm:w-7 sm:h-7 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-300 group-hover:bg-gold-500 group-hover:text-royal-950 transition-colors"
-          title={isPlaying ? 'Pause Music' : 'Play Music'}
+          className="flex items-center gap-2 pl-3 pr-2 py-2.5 cursor-pointer"
         >
-          {isPlaying ? <Pause size={16} className="sm:w-3.5 sm:h-3.5" /> : <Play size={16} className="ml-0.5 sm:w-3.5 sm:h-3.5" />}
-        </button>
+          <div className="flex items-end gap-0.5 h-4 w-4">
+            {[0.6, 1, 0.4, 0.8].map((h, i) => (
+              <span
+                key={i}
+                className={`w-0.5 bg-gradient-to-t from-gold-600 to-gold-300 rounded-full transition-all duration-300 ${
+                  isPlaying && !isMuted ? 'animate-pulse' : 'h-1'
+                }`}
+                style={{
+                  height: isPlaying && !isMuted ? `${h * 100}%` : '25%',
+                  animationDelay: `${i * 150}ms`,
+                  animationDuration: '600ms'
+                }}
+              />
+            ))}
+          </div>
 
-        <button
-          onClick={toggleMute}
-          className="w-8 h-8 sm:w-7 sm:h-7 rounded-full bg-transparent flex items-center justify-center text-gold-400 hover:text-gold-200 transition-colors"
-          title={isMuted ? 'Unmute' : 'Mute'}
-        >
-          {isMuted ? <VolumeX size={16} className="sm:w-3.5 sm:h-3.5" /> : <Volume2 size={16} className="sm:w-3.5 sm:h-3.5" />}
-        </button>
+          <div className="hidden sm:flex flex-col">
+            <span className="text-[9px] tracking-[0.2em] uppercase text-gold-400 font-semibold leading-tight">
+              Music
+            </span>
+            <span className="text-[10px] text-ivory-200 font-medium truncate max-w-[100px]">
+              Oru Paadhi Kadhavu
+            </span>
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center gap-1 pr-2">
+          <button
+            onClick={togglePlay}
+            className="w-8 h-8 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-300 hover:bg-gold-500 hover:text-royal-950 transition-colors"
+            title={isPlaying ? 'Pause Music' : 'Play Music'}
+          >
+            {isPlaying ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
+          </button>
+
+          <button
+            onClick={toggleMute}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-gold-400 hover:text-gold-200 transition-colors"
+            title={isMuted ? 'Unmute' : 'Mute'}
+          >
+            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+          </button>
+        </div>
       </div>
     </div>
   );

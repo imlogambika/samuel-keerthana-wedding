@@ -79,22 +79,22 @@ export const GhibliScrollStory = () => {
       <div className="absolute inset-0 bg-gold-glow opacity-20 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto flex flex-col items-center justify-center relative z-10">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#38BDF8]/40 bg-[#38BDF8]/10 text-xs uppercase font-bold tracking-[0.25em] text-[#7DD3FC] shadow-[0_0_20px_rgba(56,189,248,0.2)]">
-            <Sparkles size={13} className="text-[#38BDF8]" />
-            A 10-Year Journey · 2016 to 2026
-            <Sparkles size={13} className="text-[#D4AF37]" />
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2 rounded-full border border-[#38BDF8]/40 bg-[#38BDF8]/10 text-[10px] sm:text-xs uppercase font-bold tracking-[0.2em] sm:tracking-[0.25em] text-[#7DD3FC] shadow-[0_0_20px_rgba(56,189,248,0.2)]">
+            <Sparkles size={11} className="text-[#38BDF8] sm:w-3.5 sm:h-3.5" />
+            <span className="whitespace-nowrap">A 10-Year Journey · 2016 to 2026</span>
+            <Sparkles size={11} className="text-[#D4AF37] sm:w-3.5 sm:h-3.5" />
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-gold-gradient mt-3">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif font-bold text-gold-gradient mt-2 sm:mt-3 px-4">
             Two Paths, One Destiny
           </h2>
-          <p className="text-xs sm:text-sm text-[#FDFBF7]/70 font-light mt-1">
+          <p className="text-[11px] sm:text-xs md:text-sm text-[#FDFBF7]/70 font-light mt-1 px-4">
             Tap a year below to see how two lives crossed paths and became one.
           </p>
         </div>
 
-        <div className="w-full max-w-2xl flex items-center justify-between gap-1.5 sm:gap-3 p-2 rounded-2xl glass-card border border-[#38BDF8]/30 mb-8 shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+        <div className="w-full max-w-2xl flex items-center justify-between gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-xl sm:rounded-2xl glass-card border border-[#38BDF8]/30 mb-8 shadow-[0_0_30px_rgba(56,189,248,0.15)]">
           {STORY_YEARS.map((item, idx) => (
             <button
               key={item.year}
@@ -102,7 +102,7 @@ export const GhibliScrollStory = () => {
                 setIsPlaying(false);
                 setActiveIdx(idx);
               }}
-              className={`flex-1 py-2 sm:py-2.5 px-2 rounded-xl text-xs sm:text-sm font-serif font-bold transition-all duration-300 relative ${
+              className={`flex-1 py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-lg sm:rounded-xl text-[10px] sm:text-sm font-serif font-bold transition-all duration-300 relative ${
                 activeIdx === idx
                   ? 'bg-gradient-to-r from-[#0EA5E9] to-[#D4AF37] text-[#060B18] shadow-[0_0_20px_rgba(56,189,248,0.4)] scale-105'
                   : 'text-[#7DD3FC]/80 hover:text-white hover:bg-white/5'
@@ -110,7 +110,7 @@ export const GhibliScrollStory = () => {
             >
               <span className="block leading-none">{item.year}</span>
               {activeIdx === idx && (
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+                <span className="absolute -bottom-0.5 sm:-bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#D4AF37]" />
               )}
             </button>
           ))}
@@ -118,13 +118,13 @@ export const GhibliScrollStory = () => {
           <button
             onClick={() => setIsPlaying(!isPlaying)}
             title={isPlaying ? 'Pause Story' : 'Auto Play Story'}
-            className="p-2 sm:p-2.5 rounded-xl border border-[#38BDF8]/40 bg-[#0C1B35] text-[#38BDF8] hover:bg-[#38BDF8]/20 transition-all shrink-0"
+            className="p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border border-[#38BDF8]/40 bg-[#0C1B35] text-[#38BDF8] hover:bg-[#38BDF8]/20 transition-all shrink-0"
           >
-            {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+            {isPlaying ? <Pause size={12} className="sm:w-3.5 sm:h-3.5" /> : <Play size={12} className="sm:w-3.5 sm:h-3.5" />}
           </button>
         </div>
 
-        <div className="w-full max-w-4xl relative min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
+        <div className="w-full max-w-4xl relative min-h-[500px] sm:min-h-[440px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             {!isFinalYear ? (
               <motion.div
@@ -133,58 +133,58 @@ export const GhibliScrollStory = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
-                className="w-full flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 relative"
+                className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10 relative"
               >
                 <motion.div
-                  animate={{ x: `${-current.distance}%` }}
+                  animate={{ x: activeIdx === 0 ? 0 : `${-current.distance * 0.3}%` }}
                   transition={{ type: 'spring', stiffness: 90, damping: 20 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="relative rounded-3xl overflow-hidden p-1.5 border-2 border-[#38BDF8] bg-[#0C1B35] shadow-[0_0_35px_rgba(56,189,248,0.35)] w-44 sm:w-56 h-56 sm:h-72">
+                  <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-1 sm:p-1.5 border-2 border-[#38BDF8] bg-[#0C1B35] shadow-[0_0_35px_rgba(56,189,248,0.35)] w-36 h-44 sm:w-44 sm:h-56 md:w-56 md:h-72">
                     <img
                       src="/assets/ghibli_samuel.jpg"
                       alt="Samuel Ghibli Portrait"
-                      className="w-full h-full object-cover rounded-2xl brightness-105"
+                      className="w-full h-full object-cover rounded-xl sm:rounded-2xl brightness-105"
                     />
-                    <div className="absolute top-3 left-3 bg-[#060B18]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#38BDF8]/40 text-[10px] text-[#7DD3FC] font-bold uppercase tracking-wider">
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#060B18]/85 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-[#38BDF8]/40 text-[9px] sm:text-[10px] text-[#7DD3FC] font-bold uppercase tracking-wider">
                       Samuel
                     </div>
                   </div>
-                  <p className="max-w-[220px] text-xs text-[#7DD3FC]/90 font-serif italic mt-3 bg-[#0C1B35]/70 p-2.5 rounded-xl border border-[#38BDF8]/20 shadow-md">
+                  <p className="max-w-[160px] sm:max-w-[200px] text-[10px] sm:text-xs text-[#7DD3FC]/90 font-serif italic mt-2 sm:mt-3 bg-[#0C1B35]/70 p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-[#38BDF8]/20 shadow-md">
                     "{current.samuelNote}"
                   </p>
                 </motion.div>
 
                 <div className="flex flex-col items-center justify-center shrink-0 my-2 md:my-0 z-20">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#D4AF37]/80 bg-[#0C1B35]/95 backdrop-blur-md flex flex-col items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]">
-                    <span className="text-2xl sm:text-3xl text-gold-gradient font-serif leading-none">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-[#D4AF37]/80 bg-[#0C1B35]/95 backdrop-blur-md flex flex-col items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                    <span className="text-xl sm:text-2xl md:text-3xl text-gold-gradient font-serif leading-none">
                       ∞
                     </span>
-                    <span className="text-[10px] font-serif font-bold text-[#7DD3FC] mt-0.5">
+                    <span className="text-[9px] sm:text-[10px] font-serif font-bold text-[#7DD3FC] mt-0.5">
                       {current.year}
                     </span>
                   </div>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#D4AF37] mt-2">
+                  <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider sm:tracking-widest text-[#D4AF37] mt-1.5 sm:mt-2 text-center max-w-[120px]">
                     {current.title}
                   </span>
                 </div>
 
                 <motion.div
-                  animate={{ x: `${current.distance}%` }}
+                  animate={{ x: activeIdx === 0 ? 0 : `${current.distance * 0.3}%` }}
                   transition={{ type: 'spring', stiffness: 90, damping: 20 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="relative rounded-3xl overflow-hidden p-1.5 border-2 border-[#D4AF37] bg-[#0C1B35] shadow-[0_0_35px_rgba(212,175,55,0.35)] w-44 sm:w-56 h-56 sm:h-72">
+                  <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-1 sm:p-1.5 border-2 border-[#D4AF37] bg-[#0C1B35] shadow-[0_0_35px_rgba(212,175,55,0.35)] w-36 h-44 sm:w-44 sm:h-56 md:w-56 md:h-72">
                     <img
                       src="/assets/ghibli_keerthana.jpg"
                       alt="Keerthana Ghibli Portrait"
-                      className="w-full h-full object-cover rounded-2xl brightness-105"
+                      className="w-full h-full object-cover rounded-xl sm:rounded-2xl brightness-105"
                     />
-                    <div className="absolute top-3 right-3 bg-[#060B18]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#D4AF37]/40 text-[10px] text-[#D4AF37] font-bold uppercase tracking-wider">
+                    <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-[#060B18]/85 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-[#D4AF37]/40 text-[9px] sm:text-[10px] text-[#D4AF37] font-bold uppercase tracking-wider">
                       Keerthana
                     </div>
                   </div>
-                  <p className="max-w-[220px] text-xs text-[#F4E5A4]/90 font-serif italic mt-3 bg-[#0C1B35]/70 p-2.5 rounded-xl border border-[#D4AF37]/20 shadow-md">
+                  <p className="max-w-[160px] sm:max-w-[200px] text-[10px] sm:text-xs text-[#F4E5A4]/90 font-serif italic mt-2 sm:mt-3 bg-[#0C1B35]/70 p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-[#D4AF37]/20 shadow-md">
                     "{current.keerthanaNote}"
                   </p>
                 </motion.div>

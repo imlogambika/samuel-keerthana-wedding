@@ -56,7 +56,7 @@ export const Footer = () => {
         </p>
 
         {/* Back to Top */}
-        <div className="mt-12 pt-8 border-t border-[#38BDF8]/15 flex flex-col items-center justify-center gap-4">
+        <div className="mt-12 pt-8 border-t border-[#38BDF8]/15 flex flex-col items-center justify-center gap-4 pb-20 sm:pb-4">
           <button
             onClick={scrollToTop}
             className="w-11 h-11 rounded-full glass-panel border border-[#38BDF8]/40 text-[#7DD3FC] flex items-center justify-center hover:bg-[#38BDF8] hover:text-[#060B18] transition-all duration-300 shadow-lg hover:scale-110"
@@ -66,7 +66,7 @@ export const Footer = () => {
           </button>
 
           <p className="text-xs text-[#7DD3FC]/75 tracking-wider font-light">
-            {"made with love \u{1F90D}."}
+            made with love 🤍
           </p>
         </div>
       </div>
