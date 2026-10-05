@@ -51,14 +51,14 @@ export const Countdown = () => {
   ];
 
   return (
-    <section id="countdown" className="py-20 relative bg-royal-900/60 overflow-hidden">
+    <section id="countdown" className="py-16 sm:py-20 relative bg-royal-900/60 overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
         
-        <span className="text-xs uppercase tracking-[0.35em] text-[#38BDF8] font-bold inline-flex items-center gap-2">
-          <Clock size={14} /> Counting Down To The Big Day
+        <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#38BDF8] font-bold inline-flex items-center gap-1.5 sm:gap-2">
+          <Clock size={12} className="sm:w-3.5 sm:h-3.5" /> <span className="whitespace-nowrap">Counting Down To The Big Day</span>
         </span>
 
-        <h2 className="text-3xl sm:text-5xl font-serif font-bold text-gold-gradient mt-2 mb-3">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif font-bold text-gold-gradient mt-2 mb-3">
           Until We Say "I Do"
         </h2>
 
@@ -79,7 +79,7 @@ export const Countdown = () => {
             </p>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-10 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 my-8 sm:my-10 max-w-3xl mx-auto">
             {timerItems.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -87,13 +87,13 @@ export const Countdown = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative rounded-2xl p-6 glass-card border border-[#38BDF8]/30 shadow-xl text-center group hover:border-[#38BDF8] transition-all"
+                className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 glass-card border border-[#38BDF8]/30 shadow-xl text-center group hover:border-[#38BDF8] transition-all"
               >
                 <CornerFlourish />
-                <span className="text-4xl sm:text-6xl font-serif font-bold text-sky-gradient tracking-tight block">
+                <span className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-sky-gradient tracking-tight block">
                   {String(item.value).padStart(2, '0')}
                 </span>
-                <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mt-2 block">
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#D4AF37] font-semibold mt-1.5 sm:mt-2 block">
                   {item.label}
                 </span>
               </motion.div>

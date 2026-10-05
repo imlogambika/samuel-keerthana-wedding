@@ -186,19 +186,19 @@ export const RSVPSection = () => {
     <section id="rsvp" className="py-24 relative bg-[#060B18] overflow-hidden">
       <div className="absolute inset-0 bg-sky-glow opacity-30 pointer-events-none" />
 
-      <div className="max-w-2xl mx-auto px-4 relative z-10">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] text-[#38BDF8] font-bold">
-            <Sparkles size={13} className="text-[#38BDF8]" />
-            Personalized Invitation Pass
-            <Sparkles size={13} className="text-[#D4AF37]" />
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#38BDF8] font-bold">
+            <Sparkles size={11} className="text-[#38BDF8] sm:w-3.5 sm:h-3.5" />
+            <span className="whitespace-nowrap">Personalized Invitation Pass</span>
+            <Sparkles size={11} className="text-[#D4AF37] sm:w-3.5 sm:h-3.5" />
           </span>
-          <h2 className="text-4xl sm:text-6xl font-serif font-bold text-gold-gradient mt-2 mb-2">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-gold-gradient mt-2 mb-2">
             RSVP
           </h2>
           <GoldDivider />
-          <p className="text-sm text-[#FDFBF7]/80">
+          <p className="text-xs sm:text-sm text-[#FDFBF7]/80 px-4">
             Enter your details to generate and download your personalized pass.
           </p>
         </div>
@@ -208,7 +208,7 @@ export const RSVPSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative rounded-3xl glass-card border-2 border-[#38BDF8]/40 p-7 sm:p-10 shadow-[0_0_50px_rgba(56,189,248,0.18)] overflow-hidden"
+          className="relative rounded-2xl sm:rounded-3xl glass-card border-2 border-[#38BDF8]/40 p-5 sm:p-7 md:p-10 shadow-[0_0_50px_rgba(56,189,248,0.18)] overflow-hidden"
         >
           <CornerFlourish />
 
@@ -252,18 +252,18 @@ export const RSVPSection = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center">
                   <button
                     onClick={downloadCard}
-                    className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] via-[#D4AF37] to-[#0EA5E9] text-[#060B18] font-bold text-xs uppercase tracking-[0.2em] shadow-[0_0_25px_rgba(56,189,248,0.4)] hover:scale-105 transition-all"
+                    className="flex items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] via-[#D4AF37] to-[#0EA5E9] text-[#060B18] font-bold text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-[0_0_25px_rgba(56,189,248,0.4)] hover:scale-105 transition-all"
                   >
-                    <Download size={15} /> Download Invitation (.PNG)
+                    <Download size={14} className="sm:w-4 sm:h-4" /> <span className="whitespace-nowrap">Download Invitation</span>
                   </button>
                   <button
                     onClick={shareWhatsApp}
-                    className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border-2 border-[#38BDF8]/50 text-[#7DD3FC] font-bold text-xs uppercase tracking-[0.15em] hover:bg-[#38BDF8]/10 transition-all"
+                    className="flex items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full border-2 border-[#38BDF8]/50 text-[#7DD3FC] font-bold text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] hover:bg-[#38BDF8]/10 transition-all"
                   >
-                    <Share2 size={15} /> Share Details
+                    <Share2 size={14} className="sm:w-4 sm:h-4" /> Share Details
                   </button>
                 </div>
 

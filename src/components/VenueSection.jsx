@@ -6,19 +6,19 @@ import { GoldDivider, CornerFlourish } from './GoldDecorations';
 
 export const VenueSection = () => {
   return (
-    <section id="venue" className="py-24 relative bg-royal-950 overflow-hidden">
+    <section id="venue" className="py-16 sm:py-20 md:py-24 relative bg-royal-950 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.35em] text-gold-400 font-semibold inline-flex items-center gap-2">
-            <Compass size={14} /> Location & Directions
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gold-400 font-semibold inline-flex items-center gap-1.5 sm:gap-2">
+            <Compass size={12} className="sm:w-3.5 sm:h-3.5" /> Location & Directions
           </span>
-          <h2 className="text-4xl sm:text-6xl font-serif font-bold text-gold-gradient mt-2 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-gold-gradient mt-2 mb-3 sm:mb-4">
             The Wedding Venue
           </h2>
           <GoldDivider />
-          <p className="text-sm text-ivory-200/80 font-light">
+          <p className="text-xs sm:text-sm text-ivory-200/80 font-light px-4">
             Join us at {weddingData.event.venue}, {weddingData.event.location} for an unforgettable reception.
           </p>
         </div>
@@ -31,63 +31,63 @@ export const VenueSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 flex flex-col justify-between p-8 rounded-3xl glass-card border border-gold-500/40 shadow-2xl relative overflow-hidden"
+            className="lg:col-span-5 flex flex-col justify-between p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl glass-card border border-gold-500/40 shadow-2xl relative overflow-hidden"
           >
             <CornerFlourish />
 
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-400/50 flex items-center justify-center text-gold-300">
-                <MapPin size={28} />
+            <div className="space-y-4 sm:space-y-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold-500/10 border border-gold-400/50 flex items-center justify-center text-gold-300">
+                <MapPin size={24} className="sm:w-7 sm:h-7" />
               </div>
 
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-gold-400 font-semibold">
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-gold-400 font-semibold">
                   Reception Venue
                 </span>
-                <h3 className="text-3xl font-serif font-bold text-gold-gradient mt-1">
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-gold-gradient mt-1">
                   {weddingData.event.venue}
                 </h3>
-                <p className="text-base text-ivory-100 font-medium mt-1">
+                <p className="text-sm sm:text-base text-ivory-100 font-medium mt-1">
                   {weddingData.event.location}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-royal-900/80 border border-gold-500/20 text-xs text-ivory-200/90 leading-relaxed space-y-2">
-                <p className="font-semibold text-gold-300 uppercase tracking-wider text-[11px]">
+              <div className="p-3 sm:p-4 rounded-xl bg-royal-900/80 border border-gold-500/20 text-[11px] sm:text-xs text-ivory-200/90 leading-relaxed space-y-1.5 sm:space-y-2">
+                <p className="font-semibold text-gold-300 uppercase tracking-wider text-[10px] sm:text-[11px]">
                   Address Details:
                 </p>
                 <p>{weddingData.event.fullAddress}</p>
-                <p className="text-gold-200/80 italic font-serif pt-1 border-t border-gold-500/10">
+                <p className="text-gold-200/80 italic font-serif pt-1 border-t border-gold-500/10 text-[10px] sm:text-xs">
                   Date: Wednesday, Oct 28, 2026 • 11:00 AM
                 </p>
               </div>
 
               {/* QR Directions Badge */}
-              <div className="p-4 rounded-xl bg-gold-500/10 border border-gold-400/40 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-royal-950 flex items-center justify-center text-gold-300 shrink-0 border border-gold-500/30">
-                  <QrCode size={24} />
+              <div className="p-3 sm:p-4 rounded-xl bg-gold-500/10 border border-gold-400/40 flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-royal-950 flex items-center justify-center text-gold-300 shrink-0 border border-gold-500/30">
+                  <QrCode size={20} className="sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase tracking-widest text-gold-300 font-bold">
+                  <h4 className="text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-gold-300 font-bold">
                     Scan for directions
                   </h4>
-                  <p className="text-[11px] text-ivory-200/80 font-light">
+                  <p className="text-[10px] sm:text-[11px] text-ivory-200/80 font-light">
                     Matches QR code from official printed card
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gold-500/20">
+            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gold-500/20">
               <a
                 href={weddingData.event.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-royal-950 font-semibold text-xs uppercase tracking-[0.2em] shadow-lg shadow-gold-500/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-royal-950 font-semibold text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-lg shadow-gold-500/20 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2"
               >
-                <Navigation size={16} />
+                <Navigation size={14} className="sm:w-4 sm:h-4" />
                 Open in Google Maps
-                <ExternalLink size={14} />
+                <ExternalLink size={12} className="sm:w-3.5 sm:h-3.5" />
               </a>
             </div>
           </motion.div>
@@ -109,9 +109,9 @@ export const VenueSection = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="absolute top-4 right-4 bg-royal-950/90 border border-gold-500/40 px-3 py-1.5 rounded-full backdrop-blur-md text-[11px] text-gold-300 font-medium tracking-wider flex items-center gap-1.5 shadow-lg">
-                <MapPin size={12} className="text-gold-400" />
-                AM Mahal, Erode
+              <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-royal-950/90 border border-gold-500/40 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full backdrop-blur-md text-[10px] sm:text-[11px] text-gold-300 font-medium tracking-wide sm:tracking-wider flex items-center gap-1 sm:gap-1.5 shadow-lg">
+                <MapPin size={10} className="text-gold-400 sm:w-3 sm:h-3" />
+                <span className="whitespace-nowrap">AM Mahal, Erode</span>
               </div>
             </div>
           </motion.div>

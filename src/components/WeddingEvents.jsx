@@ -68,47 +68,47 @@ END:VCALENDAR`;
         >
           <CornerFlourish />
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
             
             {/* Left Column: Date Badge */}
             <div className="text-center md:text-left shrink-0">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gold-500/10 border-2 border-gold-400/60 flex flex-col items-center justify-center p-2 shadow-xl group-hover:border-gold-300 transition-colors">
-                <span className="text-xs uppercase tracking-widest text-gold-400 font-bold">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-gold-500/10 border-2 border-gold-400/60 flex flex-col items-center justify-center p-2 shadow-xl group-hover:border-gold-300 transition-colors">
+                <span className="text-[10px] sm:text-xs uppercase tracking-widest text-gold-400 font-bold">
                   OCT
                 </span>
-                <span className="text-4xl sm:text-5xl font-serif font-bold text-gold-gradient leading-none my-1">
+                <span className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gold-gradient leading-none my-0.5 sm:my-1">
                   28
                 </span>
-                <span className="text-[11px] text-ivory-200 font-medium">
+                <span className="text-[10px] sm:text-[11px] text-ivory-200 font-medium">
                   Wednesday
                 </span>
               </div>
             </div>
 
             {/* Middle Column: Event Details */}
-            <div className="flex-1 text-center md:text-left space-y-4">
+            <div className="flex-1 text-center md:text-left space-y-3 sm:space-y-4">
               <div>
-                <span className="inline-block px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+                <span className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-gold-500/20 text-gold-300 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-2">
                   Main Event
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-gold-gradient">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gold-gradient">
                   {weddingData.event.title}
                 </h3>
               </div>
 
-              <div className="space-y-2 text-sm text-ivory-200">
-                <p className="flex items-center justify-center md:justify-start gap-2.5">
-                  <Clock size={16} className="text-gold-400" />
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-ivory-200">
+                <p className="flex items-center justify-center md:justify-start gap-2 sm:gap-2.5">
+                  <Clock size={14} className="text-gold-400 sm:w-4 sm:h-4" />
                   <span className="font-semibold text-gold-200">Time:</span> {weddingData.event.time}
                 </p>
 
-                <p className="flex items-center justify-center md:justify-start gap-2.5">
-                  <MapPin size={16} className="text-gold-400" />
-                  <span className="font-semibold text-gold-200">Venue:</span> {weddingData.event.venue}, {weddingData.event.location}
+                <p className="flex items-start justify-center md:justify-start gap-2 sm:gap-2.5">
+                  <MapPin size={14} className="text-gold-400 mt-0.5 sm:w-4 sm:h-4 shrink-0" />
+                  <span><span className="font-semibold text-gold-200">Venue:</span> {weddingData.event.venue}, {weddingData.event.location}</span>
                 </p>
               </div>
 
-              <p className="text-xs text-gold-300/80 italic font-serif">
+              <p className="text-[10px] sm:text-xs text-gold-300/80 italic font-serif">
                 "{weddingData.event.directionsNote}"
               </p>
             </div>
@@ -116,22 +116,22 @@ END:VCALENDAR`;
           </div>
 
           {/* Action Row */}
-          <div className="mt-10 pt-6 border-t border-gold-500/20 flex flex-wrap items-center justify-center md:justify-end gap-3">
+          <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-gold-500/20 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center md:justify-end gap-2 sm:gap-3">
             <a
               href={googleCalendarUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-gold-500/20 hover:bg-gold-500 text-gold-300 hover:text-royal-950 border border-gold-400/50 text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300 flex items-center gap-2"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gold-500/20 hover:bg-gold-500 text-gold-300 hover:text-royal-950 border border-gold-400/50 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap"
             >
-              <Calendar size={14} />
-              Add to Google Calendar
+              <Calendar size={13} className="sm:w-3.5 sm:h-3.5" />
+              Google Calendar
             </a>
 
             <button
               onClick={generateIcsFile}
-              className="px-5 py-2.5 rounded-full glass-panel hover:bg-gold-500/30 text-gold-200 border border-gold-400/30 text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300 flex items-center gap-2"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-panel hover:bg-gold-500/30 text-gold-200 border border-gold-400/30 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap"
             >
-              <Download size={14} />
+              <Download size={13} className="sm:w-3.5 sm:h-3.5" />
               iCal (.ics)
             </button>
 
@@ -139,11 +139,11 @@ END:VCALENDAR`;
               href={weddingData.event.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-royal-950 font-semibold text-xs uppercase tracking-[0.15em] hover:scale-105 transition-all duration-300 flex items-center gap-2 shadow-md"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-royal-950 font-semibold text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 shadow-md whitespace-nowrap"
             >
-              <MapPin size={14} />
+              <MapPin size={13} className="sm:w-3.5 sm:h-3.5" />
               View Map
-              <ExternalLink size={12} />
+              <ExternalLink size={11} className="sm:w-3 sm:h-3" />
             </a>
           </div>
 

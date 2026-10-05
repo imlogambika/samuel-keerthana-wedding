@@ -128,7 +128,7 @@ export const AudioPlayer = ({ autoPlayTriggered, onAudioStart }) => {
   }, [autoPlayTriggered]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
       {/* Hidden HTML5 Audio Tag */}
       <audio
         ref={audioRef}
@@ -140,10 +140,10 @@ export const AudioPlayer = ({ autoPlayTriggered, onAudioStart }) => {
 
       <div
         onClick={togglePlay}
-        className="glass-panel group flex items-center gap-3 px-4 py-2.5 rounded-full border border-gold-500/40 shadow-xl cursor-pointer hover:border-gold-400 hover:shadow-gold-500/20 transition-all duration-300"
+        className="glass-panel group flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full border border-gold-500/40 shadow-xl cursor-pointer hover:border-gold-400 hover:shadow-gold-500/20 transition-all duration-300"
       >
         {/* Animated Equalizer Waveform */}
-        <div className="flex items-end gap-0.5 h-4 w-5">
+        <div className="flex items-end gap-0.5 h-3 w-4 sm:h-4 sm:w-5">
           {[0.6, 1, 0.4, 0.8].map((h, i) => (
             <span
               key={i}
@@ -159,7 +159,7 @@ export const AudioPlayer = ({ autoPlayTriggered, onAudioStart }) => {
           ))}
         </div>
 
-        <div className="flex flex-col">
+        <div className="hidden sm:flex flex-col">
           <span className="text-[10px] tracking-[0.2em] uppercase text-gold-400 font-semibold leading-tight">
             Music
           </span>
@@ -170,18 +170,18 @@ export const AudioPlayer = ({ autoPlayTriggered, onAudioStart }) => {
 
         <button
           onClick={togglePlay}
-          className="w-7 h-7 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-300 group-hover:bg-gold-500 group-hover:text-royal-950 transition-colors"
+          className="w-8 h-8 sm:w-7 sm:h-7 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-300 group-hover:bg-gold-500 group-hover:text-royal-950 transition-colors"
           title={isPlaying ? 'Pause Music' : 'Play Music'}
         >
-          {isPlaying ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
+          {isPlaying ? <Pause size={16} className="sm:w-3.5 sm:h-3.5" /> : <Play size={16} className="ml-0.5 sm:w-3.5 sm:h-3.5" />}
         </button>
 
         <button
           onClick={toggleMute}
-          className="w-7 h-7 rounded-full bg-transparent flex items-center justify-center text-gold-400 hover:text-gold-200 transition-colors"
+          className="w-8 h-8 sm:w-7 sm:h-7 rounded-full bg-transparent flex items-center justify-center text-gold-400 hover:text-gold-200 transition-colors"
           title={isMuted ? 'Unmute' : 'Mute'}
         >
-          {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+          {isMuted ? <VolumeX size={16} className="sm:w-3.5 sm:h-3.5" /> : <Volume2 size={16} className="sm:w-3.5 sm:h-3.5" />}
         </button>
       </div>
     </div>
